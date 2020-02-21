@@ -22,7 +22,8 @@
 - [ ] Attack effects (Slow, burn, poision?)
 - [ ] Area effects? 
 ## Level:
-- [ ] Several rooms that the player can explore. The rooms are filled with enemies and loot
+- [x] Several rooms that the player can explore. 
+- [ ] The rooms are filled with enemies and loot
 - [ ] Picking up the loot may provide consumable items, like poitions, or equipment. The equipment can add abilites, like an ice lance spell.
 - [ ] A locked door that the player needs to find a key for
 - [ ] Key is blocked by a powerful enemy
