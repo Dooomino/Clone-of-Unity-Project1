@@ -61,6 +61,6 @@ public class GenTile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Generate();
+        // Generate();
     }
 }

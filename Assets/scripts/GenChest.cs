@@ -23,6 +23,8 @@ public class GenChest : MonoBehaviour
                                     Random.Range(0,100)%size,
                                     0);
         chestsVariant = Random.Range(0,100)%chests.Length;
+
+        Generate();
     }
 
     [ContextMenu("Regen")]
@@ -40,6 +42,5 @@ public class GenChest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Generate();
     }
 }

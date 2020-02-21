@@ -21,6 +21,7 @@ public class GenBlock : MonoBehaviour
         offsetX = Random.Range(0,9999f);
         offsetY = Random.Range(0,9999f);
         tilemap = GetComponent<Tilemap>();
+        Generate();
     }
 
     [ContextMenu("Regen")]
@@ -52,10 +53,11 @@ public class GenBlock : MonoBehaviour
             {
                 Vector3Int v = new Vector3Int(i, j, 0);
                 if(vals[i,j]==7){
-                    tilemap.SetTile(v, stones[(vals[i,j]*i*j)%stones.Length]);
-                }
-                if(vals[i,j]==5){
-                    tilemap.SetTile(v, planks[(vals[i,j]*i*j)%planks.Length]);
+                    if((int)(Random.Range(0,100f))%2 == 0){
+                        tilemap.SetTile(v, stones[(vals[i,j]*i*j)%stones.Length]);
+                    }else{
+                        tilemap.SetTile(v, planks[(vals[i,j]*i*j)%planks.Length]);
+                    }
                 }
                 
             }
@@ -65,6 +67,6 @@ public class GenBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Generate();
+       
     }
 }
