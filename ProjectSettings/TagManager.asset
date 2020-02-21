@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 394582025
+    locked: 0
+  - name: Decorate
+    uniqueID: 1665688659
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2632866243
+    locked: 0
+  - name: Walls
+    uniqueID: 2668551675
+    locked: 0
+  - name: Doors
+    uniqueID: 3248296595
+    locked: 0
+  - name: Player
+    uniqueID: 1809728015
+    locked: 0

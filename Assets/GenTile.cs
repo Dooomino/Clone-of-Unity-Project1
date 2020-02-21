@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 public class GenTile : MonoBehaviour
 {
-    public int size = 10;
+    [Range(10,30)]
+    public static int size = 15;
     [Range(0,100)]
-    public int scale;
+    public static int scale = 72;
     public float offsetX = 100f; 
     public float offsetY = 100f; 
     public TileBase[] tileSet;
@@ -39,7 +40,7 @@ public class GenTile : MonoBehaviour
             {   
                 float x = i * scale + offsetX;
                 float y = j * scale + offsetY;
-                int z = (int)(Mathf.PerlinNoise(x, y)*10);
+                int z = (int)(Mathf.PerlinNoise(x, y)*10*tileSet.Length);
                 vals[i, j] = z;
             }
         }
@@ -48,11 +49,12 @@ public class GenTile : MonoBehaviour
         {
             for (int j = 0; j < size; j++)
             {
-                Vector3Int v = new Vector3Int(i, j, 0);
-                if(vals[i,j] > 5)
-                    tilemap.SetTile(v, tileSet[1]);
-                else
-                    tilemap.SetTile(v, tileSet[0]);
+                if(vals[i,j] > (tileSet.Length*10)/2 ){
+                    Vector3Int v = new Vector3Int(i, j, 0);
+                    var index = vals[i,j] % tileSet.Length;
+                    // Debug.Log(index);
+                    tilemap.SetTile(v, tileSet[index]);
+                }
             }
         }
     }
