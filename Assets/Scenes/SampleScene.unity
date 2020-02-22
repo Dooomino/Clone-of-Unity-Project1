@@ -7132,6 +7132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d817167b5c0f954fba16f0f123c5971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectSpeed: 20
+  projectSpeed: 1
   firstProjectile: {fileID: 1261612443964390412, guid: 90034df1e78254a4aa62e678f7b4bc69,
     type: 3}
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

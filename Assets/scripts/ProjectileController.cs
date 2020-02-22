@@ -6,6 +6,8 @@ public class ProjectileController : MonoBehaviour
 {
     public int damage = 10;
     public float timeToLive = 1.0f;
+
+    public float coolDown = 1.0f;
     private float timeBorn;
     // Start is called before the first frame update
     void Start()
