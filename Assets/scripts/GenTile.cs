@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+/* This script will only runs one time when game started.
+    However, the Generation could still being 
+    called by Regen() if necessary.*/
 public class GenTile : MonoBehaviour
 {
-    [Range(10,30)]
-    public static int size = 15;
-    [Range(0,100)]
+    // Perlin noise variables
+    // [Range(10,30)]
+    public static int size = 16;
+    // [Range(0,100)]
     public static int scale = 72;
     public float offsetX = 100f; 
     public float offsetY = 100f; 
@@ -34,6 +38,7 @@ public class GenTile : MonoBehaviour
         tilemap.ClearAllTiles();
         int[,] vals = new int[size, size];
 
+        // Generate perlin noise
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
@@ -42,23 +47,15 @@ public class GenTile : MonoBehaviour
                 float y = j * scale + offsetY;
                 int z = (int)(Mathf.PerlinNoise(x, y)*10*tileSet.Length);
                 vals[i, j] = z;
-            }
-        }
-
-        for (int i = 0; i < size; i++)
-        {
-            for (int j = 0; j < size; j++)
-            {
+                // Applied to TileMap
                 if(vals[i,j] > (tileSet.Length*10)/2 ){
                     Vector3Int v = new Vector3Int(i, j, 0);
                     var index = vals[i,j] % tileSet.Length;
-                    // Debug.Log(index);
                     tilemap.SetTile(v, tileSet[index]);
                 }
             }
         }
     }
-    // Update is called once per frame
     void Update()
     {
         // Generate();
