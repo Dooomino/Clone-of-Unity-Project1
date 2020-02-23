@@ -36,6 +36,7 @@ public class CharacterController2D : MonoBehaviour {
 
 		colliders = Physics2D.OverlapCircleAll(rb.position, 0.5f, enemyAttackLayer);
 		foreach(Collider2D collider in colliders){
+			Debug.Log("Test");
 			Interactable interact = collider.GetComponent<Interactable>();
 			interact.OnCollision(this);
 		}

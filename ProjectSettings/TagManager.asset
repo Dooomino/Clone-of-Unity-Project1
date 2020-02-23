@@ -17,8 +17,8 @@ TagManager:
   - enemyAttack
   - playerAttack
   - projectile
-  - 
-  - 
+  - Enemies
+  - Player
   - 
   - 
   - 
@@ -58,4 +58,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1809728015
+    locked: 0
+  - name: Enemies
+    uniqueID: 3767931937
     locked: 0

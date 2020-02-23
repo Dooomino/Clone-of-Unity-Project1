@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileController : MonoBehaviour
+public class ProjectileController : MonoBehaviour, Interactable
 {
     public int damage = 10;
     public float timeToLive = 1.0f;
@@ -20,6 +20,10 @@ public class ProjectileController : MonoBehaviour
     void Update()
     {
         
+    }
+    public void OnCollision(CharacterController2D character){
+        Debug.Log(character.gameObject);
+        Destroy(this.gameObject);
     }
     void FixedUpdate(){
         if(Time.fixedTime - timeBorn > timeToLive){
