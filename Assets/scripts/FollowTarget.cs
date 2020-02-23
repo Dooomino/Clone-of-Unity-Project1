@@ -7,6 +7,9 @@ public class FollowTarget : MonoBehaviour {
 
 	public Transform target;
 	public Vector3 offset;
+
+	private Vector3 velocity = Vector3.zero;
+	public float smoothTime = 0.2f;
 	// Use this for initialization
 	//Set the camera's position to a bit away from the target
 	void Start () {
@@ -20,6 +23,7 @@ public class FollowTarget : MonoBehaviour {
 	void Update () {
 		Vector3 location = target.position + offset;
 		location.z = transform.position.z;
-		transform.position = location;
+		// transform.position = location;
+		transform.position = Vector3.SmoothDamp(transform.position, location, ref velocity, smoothTime);
 	}
 }

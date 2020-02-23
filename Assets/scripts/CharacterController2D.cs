@@ -5,14 +5,14 @@ public class CharacterController2D : MonoBehaviour {
 	public float movementSpeed = 10.0f;
 	public float smoothness = 0.05f;
 	private Animator animator;
-	private Rigidbody2D rigidbody;
+	private Rigidbody2D rb;
 	private float speed;
 	private Vector3 veclocity = Vector3.zero;
 	private bool isFacingRight = true;
 	[SerializeField] private LayerMask interactiveLayer;
 	[SerializeField] private LayerMask enemyAttackLayer;
 	private void Awake(){
-		rigidbody = GetComponent<Rigidbody2D>();
+		rb = GetComponent<Rigidbody2D>();
 		//animator = GetComponent<Animator>();
 	}
 	//Update the animantion variables so that the animations can change
@@ -26,7 +26,7 @@ public class CharacterController2D : MonoBehaviour {
 
 		//Go through each interactable object that the player is touching and execute the function that corresponds to that
 		//interactable object
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(rigidbody.position, 0.5f, interactiveLayer);
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(rb.position, 0.5f, interactiveLayer);
 		foreach(Collider2D collider in colliders){
 			if(collider.gameObject != gameObject){
 				Interactable interact = collider.GetComponent<Interactable>();
@@ -34,7 +34,7 @@ public class CharacterController2D : MonoBehaviour {
 			}
 		}
 
-		colliders = Physics2D.OverlapCircleAll(rigidbody.position, 0.5f, enemyAttackLayer);
+		colliders = Physics2D.OverlapCircleAll(rb.position, 0.5f, enemyAttackLayer);
 		foreach(Collider2D collider in colliders){
 			Interactable interact = collider.GetComponent<Interactable>();
 			interact.OnCollision(this);
@@ -46,8 +46,8 @@ public class CharacterController2D : MonoBehaviour {
 
 		//Move the player horizontally if the player is on the ground or is allowed to move in the air
 		Vector3 targetVelocity = new Vector2(move * movementSpeed, verticalMove * movementSpeed);
-		rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, targetVelocity, ref veclocity, smoothness);
-		speed = rigidbody.velocity.magnitude;
+		rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref veclocity, smoothness);
+		speed = rb.velocity.magnitude;
 
 		//Flip the character if it isn't facing the correct direction
 		if(move < 0.0 && isFacingRight){

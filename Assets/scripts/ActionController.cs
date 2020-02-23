@@ -26,15 +26,15 @@ public class ActionController : MonoBehaviour
 
     public void Action(HashSet<string> inputs){
         if(inputs.Contains("1")){
-            
             Vector3 worldCoord = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Input.mousePosition is in Screen Coords
             Vector2 dir = worldCoord - this.transform.position;
             dir = dir.normalized;
-            Debug.Log(dir);
+            // Debug.Log(dir);
             dir *= projectSpeed;
-            Debug.DrawLine(this.transform.position, Input.mousePosition, Color.black, 3);
+            Debug.DrawLine(this.transform.position, worldCoord , Color.black,3);
             var clone = Instantiate(firstProjectile, this.transform.position, Quaternion.identity);
             clone.GetComponent<Rigidbody2D>().AddForce(dir, ForceMode2D.Impulse);
         }
+        
     }
 }
