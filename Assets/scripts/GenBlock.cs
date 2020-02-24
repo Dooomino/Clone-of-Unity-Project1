@@ -17,7 +17,7 @@ public class GenBlock : MonoBehaviour
     //overlap detection variable 
     public Transform player;
     private Vector3 playerPosition;
-    private Vector3 chestPosition;
+    private Vector3Int[] chestPositions;
 
     public TileBase[] stones; // Pool for Stone Obstacles
     public TileBase[] planks; // Pool for Planks/Barrel Obstacles
@@ -31,7 +31,7 @@ public class GenBlock : MonoBehaviour
         offsetY = Random.Range(0,9999f);
         tilemap = GetComponent<Tilemap>();
         playerPosition = player.position;
-        chestPosition = GenChest.GetChestPos();
+        chestPositions = GenChest.GetChestPos();
         Generate();
     }
 
@@ -42,6 +42,15 @@ public class GenBlock : MonoBehaviour
         tilemap = GetComponent<Tilemap>();
         Generate();
     }
+    bool CheckChestPos(float x,float y){
+        for (int i =0;i<chestPositions.Length;i++){
+            if(x == chestPositions[i].x && y == chestPositions[i].y){
+                return false;
+            }
+        }
+        return true;
+    }
+
     void Generate() {
         transform.position = new Vector3(-size/2,-size/2,0);
         tilemap.ClearAllTiles();
@@ -49,8 +58,8 @@ public class GenBlock : MonoBehaviour
         for (int i = 0; i < size; i++)
         {   
             //get x distances
-            var bx = (i-size/2); // Obstacle x
-            var distx = Mathf.Abs( bx - playerPosition.x); // X distance to player
+            float bx = (i-size/2); // Obstacle x
+            float distx = Mathf.Abs( bx - playerPosition.x); // X distance to player
             for (int j = 0; j < size; j++)
             {
                 // Generate Perlin noise
@@ -59,11 +68,11 @@ public class GenBlock : MonoBehaviour
                 int z = (int)(Mathf.PerlinNoise(x, y)*10);
                 vals[i, j] = z;
                 //get y distances
-                var by = (j-size/2);// Obstacle x
-                var disty = Mathf.Abs(by - playerPosition.y);// Y distance to player
+                float by = (j-size/2);// Obstacle x
+                float disty = Mathf.Abs(by - playerPosition.y);// Y distance to player
                 //Applied tileSet based on Chest & play position
-                if ((distx > 1 && disty > 1) && 
-                    (bx != chestPosition.x && by != chestPosition.y)){
+                // (bx != chestPosition.x && by != chestPosition.y)
+                if (distx > 2 && disty > 2 && CheckChestPos(bx,by)){
                     // If NOT Overlap
                     Vector3Int v = new Vector3Int(i, j, 0);
                     if(vals[i,j]==7){
