@@ -38,3 +38,6 @@
 - [ ] Load Current Location, items?
 - [ ] Exit Button (esc. ?)
 - [ ] Save on Exit
+
+# Source of Sound Effects
+OOF: https://freesound.org/people/thecheeseman/sounds/44429/
