@@ -4927,6 +4927,7 @@ GameObject:
   - component: {fileID: 1170812854740304272}
   - component: {fileID: 521450193396597252}
   - component: {fileID: 4982415072819612777}
+  - component: {fileID: 2433930490623166480}
   m_Layer: 0
   m_Name: doorways
   m_TagString: Untagged
@@ -5517,3 +5518,15 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &2433930490623166480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875894404735393445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aada3dd09c6b455419188e37c23f8781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

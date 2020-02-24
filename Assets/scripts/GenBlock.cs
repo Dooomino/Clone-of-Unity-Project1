@@ -36,15 +36,20 @@ public class GenBlock : MonoBehaviour
     }
 
     [ContextMenu("Regen")]
-    void Regen(){
+    public void Regen(){
         offsetX = Random.Range(0,9999f);
         offsetY = Random.Range(0,9999f);
         tilemap = GetComponent<Tilemap>();
         Generate();
     }
-    bool CheckChestPos(float x,float y){
+
+    float distance(Vector3 o1,Vector3 o2){
+        return Mathf.Sqrt(Mathf.Pow(o1.x-o2.x,2) + Mathf.Pow(o1.y-o2.y,2));
+    }
+
+    bool CheckChestPos(Vector3 pos){
         for (int i =0;i<chestPositions.Length;i++){
-            if(x == chestPositions[i].x && y == chestPositions[i].y){
+            if(distance(pos ,chestPositions[i]) < 2){
                 return false;
             }
         }
@@ -57,9 +62,6 @@ public class GenBlock : MonoBehaviour
         int[,] vals = new int[size, size];
         for (int i = 0; i < size; i++)
         {   
-            //get x distances
-            float bx = (i-size/2); // Obstacle x
-            float distx = Mathf.Abs( bx - playerPosition.x); // X distance to player
             for (int j = 0; j < size; j++)
             {
                 // Generate Perlin noise
@@ -67,12 +69,13 @@ public class GenBlock : MonoBehaviour
                 float y = j * scale + offsetY;
                 int z = (int)(Mathf.PerlinNoise(x, y)*10);
                 vals[i, j] = z;
-                //get y distances
-                float by = (j-size/2);// Obstacle x
-                float disty = Mathf.Abs(by - playerPosition.y);// Y distance to player
+
+                //get block position
+                Vector3 blockPos = new Vector3((i-size/2),(j-size/2),0);
+
                 //Applied tileSet based on Chest & play position
                 // (bx != chestPosition.x && by != chestPosition.y)
-                if (distx > 2 && disty > 2 && CheckChestPos(bx,by)){
+                if (distance(blockPos,playerPosition) > 2 && CheckChestPos(blockPos)){
                     // If NOT Overlap
                     Vector3Int v = new Vector3Int(i, j, 0);
                     if(vals[i,j]==7){

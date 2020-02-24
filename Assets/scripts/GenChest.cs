@@ -40,8 +40,18 @@ public class GenChest : MonoBehaviour
     }
 
     [ContextMenu("Regen")]
-    void Regen(){
+    public void Regen(){
         tilemap = GetComponent<Tilemap>();
+        chestNum = Random.Range(1,MaxChestNum);
+        chestPos = new Vector3Int[chestNum];
+        chestsVariants = new int[chestNum];
+        // Invole more than one cheast in a single room
+        for (int i =0;i<chestNum;i++){
+            chestPos[i] = new Vector3Int(Random.Range(0,100)%size,
+                                         Random.Range(0,100)%size,
+                                         0);
+            chestsVariants[i] = Random.Range(0,100)%chests.Length;
+        }
         Generate();
     }
     void Generate() {
