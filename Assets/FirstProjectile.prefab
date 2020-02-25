@@ -94,12 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6371597043801619008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd81c52bb9b63aa4abf111aed9681c9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 233d9272833d23b47acf3e93b837c7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  timeToLive: 6
-  coolDown: 1
+  projectSpeed: 10
 --- !u!50 &9193433853299330366
 Rigidbody2D:
   serializedVersion: 4
