@@ -11,6 +11,9 @@ public class CharacterController2D : MonoBehaviour {
 	private bool isFacingRight = true;
 	[SerializeField] private LayerMask interactiveLayer;
 	[SerializeField] private LayerMask enemyAttackLayer;
+	[Header("Character Stats")]
+	public float health = 100;
+	public float mana = 100;
 	private void Awake(){
 		rb = GetComponent<Rigidbody2D>();
 		//animator = GetComponent<Animator>();
@@ -26,7 +29,7 @@ public class CharacterController2D : MonoBehaviour {
 
 		//Go through each interactable object that the player is touching and execute the function that corresponds to that
 		//interactable object
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(rb.position, 0.5f, interactiveLayer);
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(rb.position, 1.0f, interactiveLayer);
 		foreach(Collider2D collider in colliders){
 			if(collider.gameObject != gameObject){
 				Interactable interact = collider.GetComponent<Interactable>();
@@ -34,7 +37,7 @@ public class CharacterController2D : MonoBehaviour {
 			}
 		}
 
-		colliders = Physics2D.OverlapCircleAll(rb.position, 0.5f, enemyAttackLayer);
+		colliders = Physics2D.OverlapCircleAll(rb.position, 1.0f, enemyAttackLayer);
 		foreach(Collider2D collider in colliders){
 			Debug.Log("Test");
 			Interactable interact = collider.GetComponent<Interactable>();
@@ -64,5 +67,12 @@ public class CharacterController2D : MonoBehaviour {
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	public void takeDamage(float damage){
+		health -= damage;
+		if(health <= 0){
+			Destroy(this.gameObject);
+		}
 	}
 }
