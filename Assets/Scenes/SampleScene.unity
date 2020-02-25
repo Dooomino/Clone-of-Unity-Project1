@@ -2733,7 +2733,7 @@ MonoBehaviour:
   sightRadius: 5
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
 --- !u!114 &1293077490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3410,9 +3410,9 @@ GameObject:
   - component: {fileID: 2048524316}
   - component: {fileID: 2048524318}
   - component: {fileID: 2048524319}
-  - component: {fileID: 2048524320}
   - component: {fileID: 2048524321}
   - component: {fileID: 2048524322}
+  - component: {fileID: 2048524320}
   m_Layer: 13
   m_Name: Player
   m_TagString: Player
@@ -3576,14 +3576,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2048524313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d817167b5c0f954fba16f0f123c5971, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dadc208b28e7d545acf03a1adb90b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectSpeed: 10
-  firstProjectile: {fileID: 6371597043801619008, guid: 7e85ce70e3bd26f48bd330fb6a0fec68,
-    type: 3}
+  projectSpeed: 1
+  firstProjectile: {fileID: 0}
   projectiles:
-  - {fileID: 0}
+  - {fileID: 8428322437669452284, guid: ec4f794cbecd3794388ce66622a0750b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

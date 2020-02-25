@@ -36,13 +36,6 @@ public class CharacterController2D : MonoBehaviour {
 				interact.OnCollision(this);
 			}
 		}
-
-		colliders = Physics2D.OverlapCircleAll(rb.position, 1.0f, enemyAttackLayer);
-		foreach(Collider2D collider in colliders){
-			Debug.Log("Test");
-			Interactable interact = collider.GetComponent<Interactable>();
-			interact.OnCollision(this);
-		}
 	}
 
 	public void Move(float move, float verticalMove, bool jump){

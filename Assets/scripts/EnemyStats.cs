@@ -22,13 +22,14 @@ public class EnemyStats : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag=="Player"){
             PlayerStats stats = collision.gameObject.GetComponent<PlayerStats>();
-            // Debug.Log(stats);
             stats.DealDamage(hitPoint);
         }
     }
     // Update is called once per frame
     void Update()
     {
-        
+        if(hp <= 0){
+            Destroy(this.gameObject);
+        }
     }
 }

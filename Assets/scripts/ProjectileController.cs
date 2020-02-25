@@ -33,7 +33,11 @@ public class ProjectileController : MonoBehaviour, Interactable
     // Projectile Will Destory itself when colision happens.
     // Allow effect(Animation) to be played
     // Concept of Delay actions: https://docs.unity3d.com/ScriptReference/WaitForSeconds.html
-    private IEnumerator OnCollisionEnter2D(Collision2D collision) {
+    virtual public IEnumerator OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Enemies")){
+            Debug.Log("I hit an enemy");
+            collision.gameObject.GetComponent<EnemyStats>().hp -= damage;
+        }
         // Wait for 1 second.
         yield return new WaitForSeconds(1);
         // Do Destory after Delay

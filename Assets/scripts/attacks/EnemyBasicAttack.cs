@@ -7,20 +7,27 @@ public class EnemyBasicAttack : MonoBehaviour, Attack, Interactable
     public float projectSpeed = 10;
     public float timeToKill = 1;
     public float damage = 10;
-    private float currentTime;
+    private float lastFire;
+    public float coolDown = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        lastFire = Time.fixedTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Attack(ActionController attacker){
+            float tempTime = Time.fixedTime;
+            float deltaTime = tempTime - lastFire;
+            if(deltaTime < coolDown){
+                return;
+            }
+            lastFire = tempTime;
             GameObject playerTarget = GameObject.FindGameObjectWithTag("Player");
             Vector2 dir = playerTarget.transform.position - attacker.transform.position;
 
@@ -32,5 +39,6 @@ public class EnemyBasicAttack : MonoBehaviour, Attack, Interactable
     }
     public void OnCollision(CharacterController2D character){
         character.gameObject.GetComponent<PlayerStats>().DealDamage(damage);
+        Destroy(this.gameObject);
     }
 }

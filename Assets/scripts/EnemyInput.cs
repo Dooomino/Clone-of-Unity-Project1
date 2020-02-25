@@ -10,7 +10,7 @@ public class EnemyInput : MonoBehaviour
     private ActionController actionController;
     private float horiziontalMove = 0.0f;
     private float verticalMove = 0.0f;
-    public float sightRadius = 5;
+    public float sightRadius = 10;
     [SerializeField] private LayerMask playerLayer;
     // Start is called before the first frame update
     void Start()
@@ -23,14 +23,15 @@ public class EnemyInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        actions.Clear();
-        if(inRange(player) || true){
-            actions.Add("1");
-        }
+        
     }
     void FixedUpdate(){
-        characterController.Move(horiziontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, false);
+        characterController.Move(horiziontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, false);     
+        if(inRange(player)){
+            actions.Add("1");
+        }
         actionController.Action(actions);
+        actions.Clear();
     }
 
     private bool inRange(GameObject player){
