@@ -2,37 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicPlayerAttack : MonoBehaviour, Attack, Interactable
+public class EnemyBasicAttack : MonoBehaviour, Attack, Interactable
 {
     public float projectSpeed = 10;
     public float timeToKill = 1;
+    public float damage = 10;
     private float currentTime;
     // Start is called before the first frame update
     void Start()
     {
-        currentTime = Time.time;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        float tempTime = Time.time;
-        
-        if(tempTime - currentTime >= timeToKill){
-            print(tempTime);
-            Destroy(this.gameObject);
-        }else{
-            currentTime = tempTime;
-        }
-    }
-
-    void FixedUpdate(){
         
     }
 
     public void Attack(ActionController attacker){
-        Vector3 worldCoord = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Input.mousePosition is in Screen Coords
-            Vector2 dir = worldCoord - attacker.transform.position;
+            GameObject playerTarget = GameObject.FindGameObjectWithTag("Player");
+            Vector2 dir = playerTarget.transform.position - attacker.transform.position;
 
             dir = dir.normalized;
             var clone = Instantiate(this.gameObject, attacker.transform.position + (Vector3)(0.3f * dir), Quaternion.identity);
@@ -40,9 +30,7 @@ public class BasicPlayerAttack : MonoBehaviour, Attack, Interactable
             dir *= projectSpeed;
             clone.GetComponent<Rigidbody2D>().AddForce(dir, ForceMode2D.Impulse);
     }
-
     public void OnCollision(CharacterController2D character){
-        print("Attack");
-        Destroy(this.gameObject);
+        character.gameObject.GetComponent<PlayerStats>().DealDamage(damage);
     }
 }

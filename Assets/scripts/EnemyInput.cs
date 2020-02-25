@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyInput : MonoBehaviour
 {
-    public Sprite player;
+    public GameObject player;
     private HashSet<string> actions;
     private CharacterController2D characterController;
     private ActionController actionController;
@@ -24,16 +24,16 @@ public class EnemyInput : MonoBehaviour
     void Update()
     {
         actions.Clear();
-        if(inRange(player)){
+        if(inRange(player) || true){
             actions.Add("1");
         }
     }
     void FixedUpdate(){
         characterController.Move(horiziontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, false);
-       // actionController.Action(actions);
+        actionController.Action(actions);
     }
 
-    private bool inRange(Sprite player){
+    private bool inRange(GameObject player){
         //Create a circle around the enemy. If the player is within that circle, fire at the player
         Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, sightRadius, playerLayer);
         return colliders.Length > 0;
