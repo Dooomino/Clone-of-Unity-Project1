@@ -38,3 +38,8 @@
 - [ ] Load Current Location, items?
 - [ ] Exit Button (esc. ?)
 - [ ] Save on Exit
+# Tileset Attribution
+A Cute Dungeon: https://opengameart.org/content/a-cute-dungeon ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
+
+# Sound Effects Attribution
+OOF: https://freesound.org/people/thecheeseman/sounds/44429/ ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))

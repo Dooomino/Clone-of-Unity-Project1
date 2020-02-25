@@ -1077,7 +1077,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1626415621
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1289,6 +1289,7 @@ GameObject:
   - component: {fileID: 5197631653753101524}
   - component: {fileID: 9030562218371171612}
   - component: {fileID: 1829665170449946627}
+  - component: {fileID: 5858592973320851798}
   m_Layer: 0
   m_Name: doorways
   m_TagString: Untagged
@@ -1853,7 +1854,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1046670701
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1863,6 +1864,18 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &5858592973320851798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6203712138779700192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aada3dd09c6b455419188e37c23f8781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8969648117227653087
 GameObject:
   m_ObjectHideFlags: 0

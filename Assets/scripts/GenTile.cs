@@ -27,7 +27,7 @@ public class GenTile : MonoBehaviour
     }
 
     [ContextMenu("Regen")]
-    void Regen(){
+    public void Regen(){
         offsetX = Random.Range(0,9999f);
         offsetY = Random.Range(0,9999f);
         tilemap = GetComponent<Tilemap>();
