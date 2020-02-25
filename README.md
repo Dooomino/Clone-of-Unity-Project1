@@ -40,4 +40,4 @@
 - [ ] Save on Exit
 
 # Source of Sound Effects
-OOF: https://freesound.org/people/thecheeseman/sounds/44429/
+OOF: https://freesound.org/people/thecheeseman/sounds/44429/ ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
