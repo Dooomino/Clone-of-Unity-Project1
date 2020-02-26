@@ -2747,8 +2747,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectSpeed: 1
-  firstProjectile: {fileID: 3150389567285413153, guid: cc39966b0f9a1df49a49ddbc25dce004,
-    type: 3}
   projectiles:
   - {fileID: 0}
   - {fileID: 0}
@@ -3579,8 +3577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dadc208b28e7d545acf03a1adb90b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectSpeed: 1
-  firstProjectile: {fileID: 0}
+  projectSpeed: 3
   projectiles:
   - {fileID: 8428322437669452284, guid: ec4f794cbecd3794388ce66622a0750b, type: 3}
   - {fileID: 0}
