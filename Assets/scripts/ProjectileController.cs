@@ -26,6 +26,7 @@ public class ProjectileController : MonoBehaviour, Interactable
         Destroy(this.gameObject);
     }
     void FixedUpdate(){
+        this.gameObject.transform.Rotate(new Vector3(0f, 0f,1.0f), Space.Self);
         if(Time.fixedTime - timeBorn > timeToLive){
             Destroy(this.gameObject);
         }
@@ -38,6 +39,7 @@ public class ProjectileController : MonoBehaviour, Interactable
             Debug.Log("I hit an enemy");
             collision.gameObject.GetComponent<EnemyStats>().hp -= damage;
         }
+        
         // Wait for 1 second.
         yield return new WaitForSeconds(1);
         // Do Destory after Delay
