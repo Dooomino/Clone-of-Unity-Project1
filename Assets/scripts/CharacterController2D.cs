@@ -16,7 +16,7 @@ public class CharacterController2D : MonoBehaviour {
 	public float mana = 100;
 	private void Awake(){
 		rb = GetComponent<Rigidbody2D>();
-		//animator = GetComponent<Animator>();
+		animator = GetComponent<Animator>();
 	}
 	//Update the animantion variables so that the animations can change
 	private void Update(){

@@ -41,6 +41,9 @@
 
 # Spell Effects
 Arcane Effects: https://opengameart.org/content/arcane-magic-effect Cethiel
+
+# Player & Enemy animations:
+https://assetstore.unity.com/packages/2d/characters/hero-nad-opponents-animation-140776 Szadi Art
 # Tileset Attribution
 A Cute Dungeon: https://opengameart.org/content/a-cute-dungeon ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
 
