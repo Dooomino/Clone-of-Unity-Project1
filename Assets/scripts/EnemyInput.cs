@@ -11,6 +11,8 @@ public class EnemyInput : MonoBehaviour
     private float horiziontalMove = 0.0f;
     private float verticalMove = 0.0f;
     public float sightRadius = 10;
+
+   
     [SerializeField] private LayerMask playerLayer;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,9 @@ public class EnemyInput : MonoBehaviour
     void FixedUpdate(){
         characterController.Move(horiziontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, false);     
         if(inRange(player)){
+            Vector3 scale = transform.localScale;
+            scale.x = -player.transform.localScale.x;
+            transform.localScale = scale;
             actions.Add("1");
         }
         actionController.Action(actions);
