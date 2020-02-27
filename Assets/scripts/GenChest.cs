@@ -71,6 +71,7 @@ public class GenChest : MonoBehaviour
                 if(distance(playerPos,chestWorldPos)<2){
                     tilemap.SetTile(chestPos[i],null);
                     //TODO: Applied Loot tables and effect
+                    
                 }
             }
             // Debug.Log(playerPos+" "+chestPos+ "["+chestWorldPos+"]");
