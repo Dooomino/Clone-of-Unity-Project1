@@ -3,21 +3,21 @@
 # Objective Requirements
 
 - [X] Level Creation (3 marks)
-- [ ] Sprite Animation (3 marks)
+- [x] Sprite Animation (3 marks)
 - [x] User Input (1 mark)
 - [X] Physics / Collision System (1.5 marks)
 - [ ] Game State loading / saving (1.5 marks)
 - [ ] Menus (1 mark)
-- [ ] HUD and other gameplay interfaces (2 marks)
+- [x] HUD and other gameplay interfaces (2 marks)
 
 ## Players and Enemies:
 - [x] Character Controller. 
 - [x] Interactive Layer. This will let the player interactive with things (i.e. pick up a poition)
 - [x] Attack Effect Layer. This layer will contain projectiles launched from players and enemies. (We can split them into two seperate layers)
-- [ ] Pathfinding for enemies? 
+- [x] Pathfinding for enemies? 
 
 ## Attacks:
-- [ ] All Projectile? 
+- [x] All Projectile? 
 - [ ] Targeting hints?
 - [ ] Attack effects (Slow, burn, poision?)
 - [ ] Area effects? 
