@@ -35,7 +35,9 @@ public class RegenMap : MonoBehaviour
             chests.GetComponent<GenChest>().Regen();
             tiles.GetComponent<GenTile>().Regen();
             Transform playerTs =collision.gameObject.transform;
-            float playerX = playerTs.position.x;
+            float playerX = playerTs.position.x - 1.0f*playerTs.localScale.x;
+            // float playerX = playerTs.position.x;
+           
             float playerY = playerTs.position.y;
             playerTs.position = new Vector3(-playerX,-playerY,0);
             regened = true;
