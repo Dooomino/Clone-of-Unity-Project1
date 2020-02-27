@@ -3,12 +3,12 @@
 # Objective Requirements
 
 - [X] Level Creation (3 marks)
-- [ ] Sprite Animation (3 marks)
+- [x] Sprite Animation (3 marks)
 - [x] User Input (1 mark)
 - [X] Physics / Collision System (1.5 marks)
 - [ ] Game State loading / saving (1.5 marks)
 - [ ] Menus (1 mark)
-- [ ] HUD and other gameplay interfaces (2 marks)
+- [x] HUD and other gameplay interfaces (2 marks)
 
 ## Players and Enemies:
 - [x] Character Controller. 
@@ -17,7 +17,7 @@
 - [ ] Pathfinding for enemies? 
 
 ## Attacks:
-- [ ] All Projectile? 
+- [x] All Projectile? 
 - [ ] Targeting hints?
 - [ ] Attack effects (Slow, burn, poision?)
 - [ ] Area effects? 
