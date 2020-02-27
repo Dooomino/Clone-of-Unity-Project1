@@ -39,9 +39,11 @@
 - [ ] Exit Button (esc. ?)
 - [ ] Save on Exit
 
-# Spell Effects
+# Spell Effects:
 Arcane Effects: https://opengameart.org/content/arcane-magic-effect Cethiel
 
+# Fonts:
+Blood Font: https://www.dafont.com/bloodblocks.font Irina ModBlackmoon
 # Player & Enemy animations:
 https://assetstore.unity.com/packages/2d/characters/hero-nad-opponents-animation-140776 Szadi Art
 

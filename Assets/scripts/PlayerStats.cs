@@ -4,7 +4,7 @@ using UnityEngine;
 // using UnityEngine.UIElements;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
-
+using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
     public float Maxhp = 100;   
@@ -34,6 +34,9 @@ public class PlayerStats : MonoBehaviour
     public void DealDamage(float hit){
         hp -= hit;
         audioSource.Play(0);
+        if(hp <= 0){
+            SceneManager.LoadScene("DeathScene");
+        }
     }
 
     // Update is called once per frame
