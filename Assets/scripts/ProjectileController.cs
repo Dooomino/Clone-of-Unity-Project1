@@ -9,6 +9,7 @@ public class ProjectileController : MonoBehaviour, Interactable
 
     public float coolDown = 1.0f;
     private float timeBorn;
+    [SerializeField] private string hitLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +36,16 @@ public class ProjectileController : MonoBehaviour, Interactable
     // Allow effect(Animation) to be played
     // Concept of Delay actions: https://docs.unity3d.com/ScriptReference/WaitForSeconds.html
     virtual public IEnumerator OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Enemies")){
-            Debug.Log("I hit an enemy");
-            collision.gameObject.GetComponent<EnemyStats>().hp -= damage;
+         
+        if(collision.gameObject.layer == LayerMask.NameToLayer(hitLayer)){    
+                if(hitLayer == "Player"){
+                    collision.gameObject.GetComponent<PlayerStats>().DealDamage(damage);
+                }else{
+                    collision.gameObject.GetComponent<EnemyStats>().hp -= damage;    
+                }
+                
+                
+            Destroy(this.gameObject);
         }
         
         // Wait for 1 second.
