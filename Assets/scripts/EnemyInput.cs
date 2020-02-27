@@ -20,6 +20,7 @@ public class EnemyInput : MonoBehaviour
         actions = new HashSet<string>();
         characterController = GetComponent<CharacterController2D>();
         actionController = GetComponent<ActionController>();
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -29,9 +30,12 @@ public class EnemyInput : MonoBehaviour
     void FixedUpdate(){
         characterController.Move(horiziontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, false);     
         if(inRange(player)){
+            Vector3 dir = player.transform.position - this.gameObject.transform.position;
+            dir = dir.normalized;
             Vector3 scale = transform.localScale;
-            scale.x = -player.transform.localScale.x;
+            scale.x = dir.x/Mathf.Abs(dir.x);
             transform.localScale = scale;
+
             actions.Add("1");
         }
         actionController.Action(actions);

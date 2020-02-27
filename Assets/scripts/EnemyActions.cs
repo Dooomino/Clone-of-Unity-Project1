@@ -10,6 +10,7 @@ public class EnemyActions : ActionController
     // Start is called before the first frame update
     private void Start() {
         lastFire = Time.fixedTime;
+        player = GameObject.Find("Player");
     }
     override public void ActionOne(){
 

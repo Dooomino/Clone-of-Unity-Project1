@@ -15,14 +15,15 @@ public class GenBlock : MonoBehaviour
     private static Tilemap tilemap;
 
     //overlap detection variable 
-    public Transform player;
+    public GameObject player;
+
+    public GameObject[] enemyPrefabs;
+    public List<GameObject> enemies;
     private Vector3 playerPosition;
     private Vector3Int[] chestPositions;
 
     public TileBase[] stones; // Pool for Stone Obstacles
     public TileBase[] planks; // Pool for Planks/Barrel Obstacles
-
-   
     void Start()
     {
         size = GenTile.size;
@@ -30,8 +31,10 @@ public class GenBlock : MonoBehaviour
         offsetX = Random.Range(0,9999f);
         offsetY = Random.Range(0,9999f);
         tilemap = GetComponent<Tilemap>();
-        playerPosition = player.position;
+        playerPosition = player.transform.position;
         chestPositions = GenChest.GetChestPos();
+        enemies = new List<GameObject>();
+        SpawnMonster(); 
         Generate();
     }
 
@@ -40,6 +43,11 @@ public class GenBlock : MonoBehaviour
         offsetX = Random.Range(0,9999f);
         offsetY = Random.Range(0,9999f);
         tilemap = GetComponent<Tilemap>();
+        foreach(GameObject x in enemies){
+            Destroy(x);
+        }
+        enemies = new List<GameObject>();
+        SpawnMonster();
         Generate();
     }
 
@@ -49,11 +57,27 @@ public class GenBlock : MonoBehaviour
 
     bool CheckChestPos(Vector3 pos){
         for (int i =0;i<chestPositions.Length;i++){
-            if(distance(pos ,chestPositions[i]) < 2){
+            if(distance(pos ,chestPositions[i]) < 4){
                 return false;
             }
         }
         return true;
+    }
+    bool CheckMonsterPos(Vector3 pos){
+        foreach(GameObject x in enemies){
+            if(distance(pos ,x.transform.position) < 4){
+                return false;
+            }
+        }
+        return true;
+    }
+    void SpawnMonster(){
+        foreach(GameObject x in enemyPrefabs){
+            Vector3 pos = new Vector3(Random.Range(-size/2,size/2),Random.Range(-size/2,size/2),0);
+            GameObject enemy = Instantiate(x,pos,Quaternion.identity);
+            enemies.Add(enemy);
+            // enemy.GetComponent<EnemyInput>().player = player;
+        }
     }
 
     void Generate() {
@@ -75,7 +99,9 @@ public class GenBlock : MonoBehaviour
 
                 //Applied tileSet based on Chest & play position
                 // (bx != chestPosition.x && by != chestPosition.y)
-                if (distance(blockPos,playerPosition) > 2 && CheckChestPos(blockPos)){
+                if (distance(blockPos,playerPosition) > 4 && 
+                    CheckChestPos(blockPos) &&
+                    CheckMonsterPos(blockPos)){
                     // If NOT Overlap
                     Vector3Int v = new Vector3Int(i, j, 0);
                     if(vals[i,j]==7){
