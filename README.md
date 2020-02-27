@@ -14,7 +14,7 @@
 - [x] Character Controller. 
 - [x] Interactive Layer. This will let the player interactive with things (i.e. pick up a poition)
 - [x] Attack Effect Layer. This layer will contain projectiles launched from players and enemies. (We can split them into two seperate layers)
-- [x] Pathfinding for enemies? 
+- [ ] Pathfinding for enemies? 
 
 ## Attacks:
 - [x] All Projectile? 
