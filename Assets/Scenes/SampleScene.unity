@@ -734,6 +734,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 57ccf67d8f509e34fb9f86b0088cd4bb, type: 2}
   - {fileID: 11400000, guid: b136e4db0dd61b44e931c0993580acbc, type: 2}
   - {fileID: 11400000, guid: c0d95707ae7ea134399c6165afebb2fc, type: 2}
+  ChestNum: 0
 --- !u!66 &635117611
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -3209,6 +3210,7 @@ GameObject:
   - component: {fileID: 2048524320}
   - component: {fileID: 2048524323}
   - component: {fileID: 2048524324}
+  - component: {fileID: 2048524325}
   m_Layer: 13
   m_Name: Player
   m_TagString: Player
@@ -3609,3 +3611,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2048524325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048524313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1943a0d7d2312f14c94b51adb6a160c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighestChestCount: 0

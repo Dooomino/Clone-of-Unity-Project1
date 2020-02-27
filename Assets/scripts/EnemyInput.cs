@@ -35,7 +35,6 @@ public class EnemyInput : MonoBehaviour
             Vector3 scale = transform.localScale;
             scale.x = dir.x/Mathf.Abs(dir.x);
             transform.localScale = scale;
-
             actions.Add("1");
         }
         actionController.Action(actions);

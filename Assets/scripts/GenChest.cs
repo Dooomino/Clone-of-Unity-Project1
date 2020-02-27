@@ -10,12 +10,15 @@ public class GenChest : MonoBehaviour
     // Perlin noise variables
     int size;
     int scale;
+    int seed;
     public int MaxChestNum;
+
+    public static int score;
     private static Tilemap tilemap;
     private static Vector3Int[] chestPos;
     private int[] chestsVariants;
     public TileBase[] chests;
-    private int chestNum;
+    public int ChestNum;
     public static Vector3Int[] GetChestPos(){
         return chestPos;
     }
@@ -24,11 +27,11 @@ public class GenChest : MonoBehaviour
         size = GenTile.size;
         scale = GenTile.scale;
         tilemap = GetComponent<Tilemap>();
-        chestNum = Random.Range(1,MaxChestNum);
-        chestPos = new Vector3Int[chestNum];
-        chestsVariants = new int[chestNum];
+        ChestNum = Random.Range(1,MaxChestNum);
+        chestPos = new Vector3Int[ChestNum];
+        chestsVariants = new int[ChestNum];
         // Invole more than one cheast in a single room
-        for (int i =0;i<chestNum;i++){
+        for (int i =0;i<ChestNum;i++){
             chestPos[i] = new Vector3Int(Random.Range(0,100)%size,
                                          Random.Range(0,100)%size,
                                          0);
@@ -41,11 +44,11 @@ public class GenChest : MonoBehaviour
     [ContextMenu("Regen")]
     public void Regen(){
         tilemap = GetComponent<Tilemap>();
-        chestNum = Random.Range(1,MaxChestNum);
-        chestPos = new Vector3Int[chestNum];
-        chestsVariants = new int[chestNum];
+        ChestNum = Random.Range(1,MaxChestNum);
+        chestPos = new Vector3Int[ChestNum];
+        chestsVariants = new int[ChestNum];
         // Invole more than one cheast in a single room
-        for (int i =0;i<chestNum;i++){
+        for (int i =0;i<ChestNum;i++){
             chestPos[i] = new Vector3Int(Random.Range(0,100)%size,
                                          Random.Range(0,100)%size,
                                          0);
@@ -56,7 +59,7 @@ public class GenChest : MonoBehaviour
     void Generate() {
         transform.position = new Vector3(-size/2,-size/2,0);
         tilemap.ClearAllTiles();
-        for (int i =0;i<chestNum;i++){
+        for (int i =0;i<ChestNum;i++){
             tilemap.SetTile(chestPos[i], chests[chestsVariants[i]]);
         }
     }
@@ -66,10 +69,11 @@ public class GenChest : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.collider.gameObject.tag == "Player"){
             Vector3 playerPos =  collision.collider.gameObject.transform.position;
-                for (int i =0;i<chestNum;i++){
+                for (int i =0;i<ChestNum;i++){
                 Vector3 chestWorldPos = new Vector3(chestPos[i].x-size/2,chestPos[i].y-size/2,0);
                 if(distance(playerPos,chestWorldPos)<2){
                     tilemap.SetTile(chestPos[i],null);
+                    score++;
                     //TODO: Applied Loot tables and effect
                 }
             }
