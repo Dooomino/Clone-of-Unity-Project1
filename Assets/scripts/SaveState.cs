@@ -15,7 +15,8 @@ public class SaveState : MonoBehaviour {
     }
     private void Awake() {        
         savePath = Application.persistentDataPath + "/saveData.json"; 
-        Debug.Log("Save will be save to the path: " + savePath);    
+        Debug.Log("Save will be save to the path: " + savePath);
+        Load();
     }    
     private void Save() {        
         SaveManager.SaveAsJSON(savePath, new SaveData(this,HighestChestCount));  

@@ -15,6 +15,8 @@ public class NewGame: MonoBehaviour
     }
     private void OnClick(){
         Debug.Log("Click!");
+        string path = Application.persistentDataPath + "/saveData.json";
+        SaveManager.SaveAsJSON(path, new SaveData(0));
         SceneManager.LoadScene("SampleScene");
     }
 }

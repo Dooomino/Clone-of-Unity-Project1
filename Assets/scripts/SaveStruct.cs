@@ -7,4 +7,7 @@ public class SaveData
     public SaveData(SaveState save,int Highest){
         HighestChestCount = Highest;
     }
+    public SaveData(int Highest){
+        HighestChestCount = Highest;
+    }
 }
