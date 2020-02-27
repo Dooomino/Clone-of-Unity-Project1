@@ -19,7 +19,6 @@ public class GenChest : MonoBehaviour
     public static Vector3Int[] GetChestPos(){
         return chestPos;
     }
-    bool isSet = false;
     void Start()
     {
         size = GenTile.size;

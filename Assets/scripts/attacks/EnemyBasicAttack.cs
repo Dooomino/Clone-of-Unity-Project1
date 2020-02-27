@@ -22,23 +22,23 @@ public class EnemyBasicAttack : MonoBehaviour, Attack, Interactable
     }
 
     public void Attack(ActionController attacker){
-            float tempTime = Time.fixedTime;
-            float deltaTime = tempTime - lastFire;
-            if(deltaTime < coolDown){
-                return;
-            }
-            lastFire = tempTime;
-            GameObject playerTarget = GameObject.FindGameObjectWithTag("Player");
-            Vector2 dir = playerTarget.transform.position - attacker.transform.position;
+        float tempTime = Time.fixedTime;
+        float deltaTime = tempTime - lastFire;
+        if(deltaTime < coolDown){
+            return;
+        }
+        lastFire = tempTime;
+        GameObject playerTarget = GameObject.FindGameObjectWithTag("Player");
+        Vector2 dir = playerTarget.transform.position - attacker.transform.position;
 
-            dir = dir.normalized;
-            var clone = Instantiate(this.gameObject, attacker.transform.position + (Vector3)(0.3f * dir), Quaternion.identity);
-            Debug.DrawRay(attacker.transform.position, dir, Color.white, 1);
-            dir *= projectSpeed;
-            clone.GetComponent<Rigidbody2D>().AddForce(dir, ForceMode2D.Impulse);
+        dir = dir.normalized;
+        var clone = Instantiate(this.gameObject, attacker.transform.position + (Vector3)(0.3f * dir), Quaternion.identity);
+        Debug.DrawRay(attacker.transform.position, dir, Color.white, 1);
+        dir *= projectSpeed;
+        clone.GetComponent<Rigidbody2D>().AddForce(dir, ForceMode2D.Impulse);
     }
     public void OnCollision(CharacterController2D character){
-        character.gameObject.GetComponent<PlayerStats>().DealDamage(damage);
+        character.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
         Destroy(this.gameObject);
     }
 }

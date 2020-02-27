@@ -31,7 +31,7 @@ public class PlayerStats : MonoBehaviour
        
     }
 
-    public void DealDamage(float hit){
+    public void TakeDamage(float hit){
         hp -= hit;
         audioSource.Play(0);
         if(hp <= 0){

@@ -22,7 +22,7 @@ public class EnemyStats : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag=="Player"){
             PlayerStats stats = collision.gameObject.GetComponent<PlayerStats>();
-            stats.DealDamage(hitPoint);
+            stats.TakeDamage(hitPoint);
         }
     }
     // Update is called once per frame

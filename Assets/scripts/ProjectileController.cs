@@ -39,7 +39,7 @@ public class ProjectileController : MonoBehaviour, Interactable
          
         if(collision.gameObject.layer == LayerMask.NameToLayer(hitLayer)){    
                 if(hitLayer == "Player"){
-                    collision.gameObject.GetComponent<PlayerStats>().DealDamage(damage);
+                    collision.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
                 }else{
                     collision.gameObject.GetComponent<EnemyStats>().hp -= damage;    
                 }

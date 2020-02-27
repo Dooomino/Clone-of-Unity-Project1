@@ -33,17 +33,17 @@ public class BasicPlayerAttack : MonoBehaviour, Attack
     public void Attack(ActionController attacker){
         
         float tempTime = Time.fixedTime;
-            float deltaTime = tempTime - lastFire;
-            if(deltaTime < coolDown){
-                return;
-            }
-            lastFire = tempTime;
+        float deltaTime = tempTime - lastFire;
+        if(deltaTime < coolDown){
+            return;
+        }
+        lastFire = tempTime;
         Vector3 worldCoord = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Input.mousePosition is in Screen Coords
-            Vector2 dir = worldCoord - attacker.transform.position;
+        Vector2 dir = worldCoord - attacker.transform.position;
 
-            dir = dir.normalized;
-            var clone = Instantiate(this.gameObject, attacker.transform.position + (Vector3)(0.3f * dir), Quaternion.identity);
-            dir *= projectSpeed;
-            clone.GetComponent<Rigidbody2D>().AddForce(dir, ForceMode2D.Impulse);
+        dir = dir.normalized;
+        var clone = Instantiate(this.gameObject, attacker.transform.position + (Vector3)(0.3f * dir), Quaternion.identity);
+        dir *= projectSpeed;
+        clone.GetComponent<Rigidbody2D>().AddForce(dir, ForceMode2D.Impulse);
     }
 }
