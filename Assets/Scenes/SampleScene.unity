@@ -3398,7 +3398,6 @@ MonoBehaviour:
   Maxmana: 100
   hp: 100
   mana: 100
-  score: 0
   HpBarObj: {fileID: 1739151839}
   ManaBarObj: {fileID: 1755637607}
 --- !u!82 &2048524322

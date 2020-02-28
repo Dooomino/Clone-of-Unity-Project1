@@ -26,6 +26,8 @@ public class PlayerInput : MonoBehaviour {
 		verticalMove = Input.GetAxis("Vertical") * runSpeed;
 		if(Input.GetButtonDown("Fire1") || Input.GetKeyDown("1")){
 			actions.Add("1");
+		}else if(Input.GetButtonDown("Jump")){
+			actions.Add("5");
 		}
 	}
 	void FixedUpdate(){

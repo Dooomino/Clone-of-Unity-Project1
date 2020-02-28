@@ -15,7 +15,8 @@ public class PlayerStats : MonoBehaviour
     public float mana = 100;
     public GameObject HpBarObj;
     public GameObject ManaBarObj;
-
+    public bool invulnerable = false;
+    
     AudioSource audioSource;
     Slider HpBar;
     Slider ManaBar;
@@ -30,8 +31,13 @@ public class PlayerStats : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
        
     }
-
+    public void toggleInvulnerable(){
+        invulnerable = !invulnerable;
+    }
     public void TakeDamage(float hit){
+        if(invulnerable){
+            return;
+        }
         hp -= hit;
         audioSource.Play(0);
         if(hp <= 0){
