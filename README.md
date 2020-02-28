@@ -41,17 +41,21 @@ Team member: Yudi Tao,
 - [x] Save on Exit
 
 # Spell Effects:
-Arcane Effects: https://opengameart.org/content/arcane-magic-effect Cethiel
+Arcane Effects: https://opengameart.org/content/arcane-magic-effect Cethiel ([CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
 
 # Fonts:
-Blood Font: https://www.dafont.com/bloodblocks.font Irina ModBlackmoon
+Blood Font: https://www.dafont.com/bloodblocks.font Irina ModBlackmoon (Directly permission)
+
 # Player & Enemy animations:
 https://assetstore.unity.com/packages/2d/characters/hero-nad-opponents-animation-140776 Szadi Art
+(Unity Extension Asset)
 
 # Tileset Attribution
 A Cute Dungeon: https://opengameart.org/content/a-cute-dungeon ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
 
 # Sound Effects Attribution
-OOF: https://freesound.org/people/thecheeseman/sounds/44429/ ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
+OOF: https://freesound.org/people/thecheeseman/sounds/44429/ ([CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
 
-Background Music https://opengameart.org/content/laments-of-the-war  Cethiel
+Background Music https://opengameart.org/content/laments-of-the-war  Cethiel ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
+
+Bruh: http://www.orangefreesounds.com/bruh-sound-effect/ ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
