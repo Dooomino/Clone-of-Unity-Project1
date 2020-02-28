@@ -13,8 +13,8 @@ public class LoadGame : MonoBehaviour
         string path = Application.persistentDataPath + "/saveData.json";
         SaveData data = SaveManager.LoadFromJSON(path);
         GameObject score = GameObject.Find("Score");
-        score.GetComponent<TMPro.TextMeshProUGUI>().text = data.HighestChestCount.ToString();
         if(data == null){
+            score.GetComponent<TMPro.TextMeshProUGUI>().text = data.HighestChestCount.ToString();
             button.interactable = false;
         }
     }
