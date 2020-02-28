@@ -7,8 +7,8 @@ Team member: Yudi Tao,
 - [x] Sprite Animation (3 marks)
 - [x] User Input (1 mark)
 - [X] Physics / Collision System (1.5 marks)
-- [ ] Game State loading / saving (1.5 marks)
-- [ ] Menus (1 mark)
+- [x] Game State loading / saving (1.5 marks)
+- [x] Menus (1 mark)
 - [x] HUD and other gameplay interfaces (2 marks)
 
 ## Players and Enemies:
@@ -19,8 +19,8 @@ Team member: Yudi Tao,
 
 ## Attacks:
 - [x] All Projectile? 
-- [ ] Targeting hints?
-- [ ] Attack effects (Slow, burn, poision?)
+- [x] Targeting hints?
+- [x] Attack effects (Slow, burn, poision?)
 - [ ] Area effects? 
 ## Level:
 - [x] Several rooms that the player can explore. 
@@ -38,7 +38,7 @@ Team member: Yudi Tao,
 ## Start Menu, misc:
 - [ ] Load Current Location, items?
 - [ ] Exit Button (esc. ?)
-- [ ] Save on Exit
+- [x] Save on Exit
 
 # Spell Effects:
 Arcane Effects: https://opengameart.org/content/arcane-magic-effect Cethiel
