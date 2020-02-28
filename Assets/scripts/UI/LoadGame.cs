@@ -14,8 +14,9 @@ public class LoadGame : MonoBehaviour
         SaveData data = SaveManager.LoadFromJSON(path);
         GameObject score = GameObject.Find("Score");
         if(data == null){
-            score.GetComponent<TMPro.TextMeshProUGUI>().text = data.HighestChestCount.ToString();
             button.interactable = false;
+        }else{
+            score.GetComponent<TMPro.TextMeshProUGUI>().text = data.HighestChestCount.ToString(); 
         }
     }
 
