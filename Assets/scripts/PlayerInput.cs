@@ -22,9 +22,21 @@ public class PlayerInput : MonoBehaviour {
 	void Update () {
 		//If the player gives input through the keyboard, set the movement speeds and jumping
 		actions.Clear();
-		horizontalMove = Input.GetAxis("Horizontal") * runSpeed; 
-		verticalMove = Input.GetAxis("Vertical") * runSpeed;
-		if(Input.GetButtonDown("Fire1") || Input.GetKeyDown("1")){
+		if(!animator.GetBool("isDead")){
+			horizontalMove = Input.GetAxis("Horizontal") * runSpeed; 
+			verticalMove = Input.GetAxis("Vertical") * runSpeed;
+		}else{
+			horizontalMove = 0; 
+			verticalMove = 	0;
+		}
+		
+		if(verticalMove != 0 || horizontalMove != 0){
+			animator.SetFloat("speed",1);
+		}else{
+			animator.SetFloat("speed",0);
+		}
+
+		if(Input.GetButtonDown("Fire1")){
 			actions.Add("1");
 		}else if(Input.GetButtonDown("Jump")){
 			actions.Add("5");

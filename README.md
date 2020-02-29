@@ -1,4 +1,5 @@
 # Diablo Ripoff
+Team member: Yudi Tao, 
 
 # Objective Requirements
 
@@ -6,8 +7,8 @@
 - [x] Sprite Animation (3 marks)
 - [x] User Input (1 mark)
 - [X] Physics / Collision System (1.5 marks)
-- [ ] Game State loading / saving (1.5 marks)
-- [ ] Menus (1 mark)
+- [x] Game State loading / saving (1.5 marks)
+- [x] Menus (1 mark)
 - [x] HUD and other gameplay interfaces (2 marks)
 
 ## Players and Enemies:
@@ -18,8 +19,8 @@
 
 ## Attacks:
 - [x] All Projectile? 
-- [ ] Targeting hints?
-- [ ] Attack effects (Slow, burn, poision?)
+- [x] Targeting hints?
+- [x] Attack effects (Slow, burn, poision?)
 - [ ] Area effects? 
 ## Level:
 - [x] Several rooms that the player can explore. 
@@ -37,20 +38,24 @@
 ## Start Menu, misc:
 - [ ] Load Current Location, items?
 - [ ] Exit Button (esc. ?)
-- [ ] Save on Exit
+- [x] Save on Exit
 
 # Spell Effects:
-Arcane Effects: https://opengameart.org/content/arcane-magic-effect Cethiel
+Arcane Effects: https://opengameart.org/content/arcane-magic-effect Cethiel ([CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
 
 # Fonts:
-Blood Font: https://www.dafont.com/bloodblocks.font Irina ModBlackmoon
+Blood Font: https://www.dafont.com/bloodblocks.font Irina ModBlackmoon (Directly permission)
+
 # Player & Enemy animations:
 https://assetstore.unity.com/packages/2d/characters/hero-nad-opponents-animation-140776 Szadi Art
+(Unity Extension Asset)
 
 # Tileset Attribution
 A Cute Dungeon: https://opengameart.org/content/a-cute-dungeon ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
 
 # Sound Effects Attribution
-OOF: https://freesound.org/people/thecheeseman/sounds/44429/ ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
+OOF: https://freesound.org/people/thecheeseman/sounds/44429/ ([CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/))
 
-Background Music https://opengameart.org/content/laments-of-the-war  Cethiel
+Background Music https://opengameart.org/content/laments-of-the-war  Cethiel ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))
+
+Bruh: http://www.orangefreesounds.com/bruh-sound-effect/ ([CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/))

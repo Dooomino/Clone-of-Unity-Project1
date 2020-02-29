@@ -21,12 +21,16 @@ public class PlayerStats : MonoBehaviour
     Slider HpBar;
     Slider ManaBar;
     // Start is called before the first frame update
+
+    Animator animator;
+
     void Start()
     {
        
         HpBar = HpBarObj.GetComponent<Slider>();
         //   Debug.Log(HpBarObj.GetComponent<Slider>());
         ManaBar = ManaBarObj.GetComponent<Slider>();
+        animator = GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
        
@@ -41,7 +45,7 @@ public class PlayerStats : MonoBehaviour
         hp -= hit;
         audioSource.Play(0);
         if(hp <= 0){
-            SceneManager.LoadScene("DeathScene");
+            animator.SetTrigger("isDead");
         }
     }
 
@@ -50,5 +54,10 @@ public class PlayerStats : MonoBehaviour
     {
         HpBar.value = hp/100;
         ManaBar.value = mana/100;
+    }
+
+
+    public void LoadDeadScene(){
+        SceneManager.LoadScene("DeathScene");
     }
 }
