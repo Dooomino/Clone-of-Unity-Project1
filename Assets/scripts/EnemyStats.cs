@@ -20,7 +20,7 @@ public class EnemyStats : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.tag=="Player"){
+        if(collision.gameObject.tag=="Player"){ //deal damage to a player if the player touches the enemy
             PlayerStats stats = collision.gameObject.GetComponent<PlayerStats>();
             stats.TakeDamage(hitPoint);
         }

@@ -16,7 +16,7 @@ public class PlayerActions : ActionController
     {
         
     }
-
+    //Fire a projectile at the direction of the mouse's position
     override public void ActionOne(){
         Vector3 worldCoord = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Input.mousePosition is in Screen Coords
         Vector2 dir = worldCoord - this.transform.position;
@@ -32,6 +32,7 @@ public class PlayerActions : ActionController
     override public void ActionFive(){
         animator.SetBool("playerRoll", true);
     }
+    //Reset the animations to return to idle animation
     public void endAnimation(){
         animator.SetBool("AttackOne", false);
         animator.SetBool("playerRoll", false);

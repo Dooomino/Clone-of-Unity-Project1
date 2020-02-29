@@ -16,11 +16,11 @@ public class EnemyActions : ActionController
 
         float tempTime = Time.fixedTime;
         float deltaTime = tempTime - lastFire;
-        if(deltaTime < coolDown){
+        if(deltaTime < coolDown){ //is the cooldown over?
             return;
         }
         lastFire = tempTime;
-
+        //Find the direction of the player and fire an projectile at that direction
         Vector2 dir = player.transform.position - this.gameObject.transform.position;
         dir = dir.normalized;
 

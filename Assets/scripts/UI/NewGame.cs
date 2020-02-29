@@ -20,6 +20,7 @@ public class NewGame: MonoBehaviour
     private void OnClick(){
         Debug.Log("Click!");
         string path = Application.persistentDataPath + "/saveData.json";
+        //Create a new game with a score of zero
         SaveManager.SaveAsJSON(path, new SaveData(0));
         SceneManager.LoadScene("SampleScene");
     }

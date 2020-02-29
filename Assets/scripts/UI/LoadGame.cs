@@ -13,6 +13,7 @@ public class LoadGame : MonoBehaviour
         string path = Application.persistentDataPath + "/saveData.json";
         SaveData data = SaveManager.LoadFromJSON(path);
         GameObject score = GameObject.Find("Score");
+        //If there is no save data, you can't load so disable the button.
         if(data == null){
             button.interactable = false;
         }else{

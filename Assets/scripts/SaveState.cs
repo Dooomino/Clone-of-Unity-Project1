@@ -5,7 +5,7 @@ public class SaveState : MonoBehaviour {
     void Update()
     {
         float hp = GameObject.Find("Player").GetComponent<PlayerStats>().hp;
-        if(hp <=0 ){
+        if(hp <=0 ){ //If the player dies, save the chest count if it beats the record
             Load();
             if(HighestChestCount < GenChest.score)
                 HighestChestCount = GenChest.score;

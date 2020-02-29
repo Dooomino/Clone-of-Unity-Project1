@@ -22,7 +22,7 @@ public class PlayerInput : MonoBehaviour {
 	void Update () {
 		//If the player gives input through the keyboard, set the movement speeds and jumping
 		actions.Clear();
-		if(!animator.GetBool("isDead")){
+		if(!animator.GetBool("isDead")){ //Only move if the player isn't dead
 			horizontalMove = Input.GetAxis("Horizontal") * runSpeed; 
 			verticalMove = Input.GetAxis("Vertical") * runSpeed;
 		}else{

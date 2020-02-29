@@ -42,7 +42,7 @@ public class EnemyInput : MonoBehaviour
     }
 
     private bool inRange(GameObject player){
-        //Create a circle around the enemy. If the player is within that circle, fire at the player
+        //Create a circle around the enemy. If the player is within that circle, return true
         Collider2D[] colliders = Physics2D.OverlapCircleAll(this.gameObject.transform.position, sightRadius, playerLayer);
         return colliders.Length > 0;
 

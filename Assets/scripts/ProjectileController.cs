@@ -27,8 +27,8 @@ public class ProjectileController : MonoBehaviour, Interactable
         Destroy(this.gameObject);
     }
     void FixedUpdate(){
-        this.gameObject.transform.Rotate(new Vector3(0f, 0f,1.0f), Space.Self);
-        if(Time.fixedTime - timeBorn > timeToLive){
+        this.gameObject.transform.Rotate(new Vector3(0f, 0f,1.0f), Space.Self); //Rotate to make it look nice
+        if(Time.fixedTime - timeBorn > timeToLive){ //destroy the projectile once it reaches a certain time.
             Destroy(this.gameObject);
         }
     }
@@ -37,7 +37,7 @@ public class ProjectileController : MonoBehaviour, Interactable
     // Concept of Delay actions: https://docs.unity3d.com/ScriptReference/WaitForSeconds.html
     virtual public IEnumerator OnCollisionEnter2D(Collision2D collision) {
          
-        if(collision.gameObject.layer == LayerMask.NameToLayer(hitLayer)){    
+        if(collision.gameObject.layer == LayerMask.NameToLayer(hitLayer)){  //If the object collides with the hit layer, do something depending on the thing it hit
                 if(hitLayer == "Player"){
                     collision.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
                 }else{

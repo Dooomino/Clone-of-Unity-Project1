@@ -22,7 +22,7 @@ public class ActionController : MonoBehaviour
     {
         
     }
-
+    //Go through each input and execute the action for the give value
     public void Action(HashSet<string> inputs){
         
         float currentTime = Time.fixedTime;
