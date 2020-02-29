@@ -1,5 +1,5 @@
 # Diablo Ripoff
-Team member: Yudi Tao, 
+Team member: Yudi Tao, Colin Orian
 
 # Objective Requirements
 
